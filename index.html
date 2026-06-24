@@ -502,8 +502,8 @@ function renderWeek(w) {
 
   /* Shopping list */
   if (w.shopping && w.shopping.length) {
-    html += '<div class="section-divider"></div><p class="section-label">Shopping list</p>';
-    html += '<p class="shop-hint">Grouped by aisle. Tap an item to check it off — it stays ticked on this device.</p>';
+    html += '<div class="section-divider"></div><p class="section-label">' + esc(w.shoptitle || 'Shopping list') + '</p>';
+    html += '<p class="shop-hint">' + esc(w.shopnote || 'Grouped by aisle. Tap an item to check it off — it stays ticked on this device.') + '</p>';
     w.shopping.forEach(function(sec, si){
       html += '<div class="shop-section"><div class="shop-section-head">';
       html += '<span class="shop-section-title">' + esc(sec.section) + '</span>';

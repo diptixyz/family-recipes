@@ -96,6 +96,55 @@
         "items": ["Flour", "Soy milk / milk", "Butter", "Vegetable broth", "Soy sauce", "Cream / quark / yoghurt (for you)", "Maggi, paprika, nutmeg, cumin, coriander, turmeric"]
       }
     ],
+    "shoptitle": "If you want to top up",
+    "shopnote": "Optional extras to round out the week and the Vesper box — only grab what you need. Tap to check off.",
+    "shopping": [
+      {
+        "section": "Produce",
+        "organic": true,
+        "items": [
+          "Cucumber — 1 (Vesper sticks + salad)",
+          "Bell peppers — 2 (Vesper strips + stir into the rice bowl)",
+          "Spring onions — 1 bunch (Friday rice bowl)",
+          "Fresh coriander — 1 bunch (Thu stew + Sat sabzi)",
+          "Avocado — 2 (the younger one loves it)",
+          "Baby tomatoes — 1 extra punnet (going fast across dinners + Vesper)"
+        ]
+      },
+      {
+        "section": "Refrigerated / chilled",
+        "organic": false,
+        "items": [
+          "Firm tofu — 1 block (vegan protein for Friday's bowl)",
+          "Hummus or Aufstrich — 1 tub (Vesper)",
+          "Cheese — small piece (kid add-on + your dairy)"
+        ]
+      },
+      {
+        "section": "Bakery",
+        "organic": false,
+        "items": [
+          "Bread or rolls + pretzels (Brezel) — for the Vesper box"
+        ]
+      },
+      {
+        "section": "Kids' add-ons (Wurst / Fisch / eggs)",
+        "organic": false,
+        "items": [
+          "Eggs — 6 (dinners + boiled-egg slices for Vesper)",
+          "Wurst / child-friendly sausage — 1 pack (Vesper + dinners)",
+          "Fish fillet — 1–2 (optional Fisch option for the kids)"
+        ]
+      },
+      {
+        "section": "If running low",
+        "organic": false,
+        "items": [
+          "Cashews & almonds (Vesper)",
+          "Coconut milk — 1 tin (to enrich a curry without cream, keeps it vegan)"
+        ]
+      }
+    ],
     "preptip": "The creamy flour-and-milk/soy sauce (Grandma's method) is the backbone twice this week — Wednesday's carrots & potatoes and Sunday's mushroom pasta. Make a little extra on Wednesday and keep it for Sunday. Boil a few eggs at the start of the week for both dinners and the Vesper box."
   }
 ]
