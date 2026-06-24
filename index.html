@@ -299,6 +299,37 @@ header {
   border-radius: 3px;
 }
 
+/* ── EATEN / LOGGED DAYS ── */
+.day.eaten { opacity: 0.62; }
+.eaten-tag, .big-tag {
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 1px 6px;
+  margin-left: 10px;
+  vertical-align: 1px;
+}
+.eaten-tag { color: var(--green); border: 1px solid var(--green); }
+.big-tag { color: var(--muted); border: 1px solid var(--border); }
+
+/* ── VESPER ── */
+.vesper-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
+.vesper-day { border-left: 2px solid var(--border); padding-left: 18px; }
+.vesper-day-name {
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.vesper-idea { font-size: 14px; line-height: 1.6; color: var(--text); }
+
+/* ── ON HAND ── */
+.onhand-group { margin-bottom: 20px; }
+.onhand-group .idea-group-label { margin-bottom: 12px; }
+
 /* ── PREP TIP ── */
 .preptip {
   background: var(--surface);
@@ -406,8 +437,8 @@ function renderWeek(w) {
     html += '<div class="section-divider"></div><p class="section-label">Dinners</p>';
     html += '<div class="days">';
     w.days.forEach(function(d){
-      html += '<div class="day">';
-      html += '<div class="day-name">' + esc(d.day) + '</div>';
+      html += '<div class="day' + (d.eaten ? ' eaten' : '') + '">';
+      html += '<div class="day-name">' + esc(d.day) + (d.eaten ? '<span class="eaten-tag">eaten</span>' : '') + '</div>';
       html += '<div class="day-dish">' + esc(d.dish) + '</div>';
       if (d.core) html += '<div class="day-core">' + esc(d.core) + '</div>';
       html += '<div class="day-meta">';
@@ -434,6 +465,39 @@ function renderWeek(w) {
       html += '</ul></div>';
     }
     html += '</div>';
+  }
+
+  /* Vesper (older child's snack box) */
+  if (w.vesper) {
+    html += '<div class="section-divider"></div><p class="section-label">Vesper · older one</p>';
+    if (w.vesper.note) html += '<p class="shop-hint">' + esc(w.vesper.note) + '</p>';
+    if (w.vesper.days && w.vesper.days.length) {
+      html += '<div class="vesper-list">';
+      w.vesper.days.forEach(function(v){
+        html += '<div class="vesper-day">';
+        html += '<div class="vesper-day-name">' + esc(v.day) + (v.big ? '<span class="big-tag">bigger</span>' : '') + '</div>';
+        html += '<div class="vesper-idea">' + esc(v.idea) + '</div>';
+        html += '</div>';
+      });
+      html += '</div>';
+    }
+    if (w.vesper.more_ideas && w.vesper.more_ideas.length) {
+      html += '<div class="idea-group-label">More to rotate in (no sweets)</div>';
+      html += '<ul class="pantry-list">';
+      w.vesper.more_ideas.forEach(function(m){ html += '<li>' + esc(m) + '</li>'; });
+      html += '</ul>';
+    }
+  }
+
+  /* Already in the kitchen */
+  if (w.onhand && w.onhand.length) {
+    html += '<div class="section-divider"></div><p class="section-label">Already in the kitchen</p>';
+    w.onhand.forEach(function(g){
+      html += '<div class="onhand-group"><div class="idea-group-label">' + esc(g.group) + '</div>';
+      html += '<ul class="pantry-list">';
+      g.items.forEach(function(it){ html += '<li>' + esc(it) + '</li>'; });
+      html += '</ul></div>';
+    });
   }
 
   /* Shopping list */
