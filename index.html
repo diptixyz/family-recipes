@@ -191,6 +191,8 @@ header {
   margin-bottom: 10px;
 }
 
+.day-note { font-size: 13px; line-height: 1.55; color: var(--accent); font-style: italic; margin-bottom: 12px; }
+
 .day-core { font-size: 14.5px; line-height: 1.7; color: var(--text); margin-bottom: 14px; }
 
 .day-meta { display: flex; flex-direction: column; gap: 6px; }
@@ -440,6 +442,7 @@ function renderWeek(w) {
       html += '<div class="day' + (d.eaten ? ' eaten' : '') + '">';
       html += '<div class="day-name">' + esc(d.day) + (d.eaten ? '<span class="eaten-tag">eaten</span>' : '') + '</div>';
       html += '<div class="day-dish">' + esc(d.dish) + '</div>';
+      if (d.note) html += '<div class="day-note">' + esc(d.note) + '</div>';
       if (d.core) html += '<div class="day-core">' + esc(d.core) + '</div>';
       html += '<div class="day-meta">';
       if (d.kids)    html += '<div class="meta-row"><span class="meta-key">Kids</span><span class="meta-val">' + esc(d.kids) + '</span></div>';
