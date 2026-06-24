@@ -32,7 +32,7 @@
   --border:  #302d26;
   --cream:   #ece8df;
   --text:    #a8a399;
-  --muted:   #78736a;
+  --muted:   #948e82;
   --faint:   #3a372f;
   --accent:  #c98a5e;
   --green:   #8a9a6b;
@@ -47,9 +47,9 @@ html.light {
   --border:  #dad4c6;
   --cream:   #211d16;
   --text:    #4a463d;
-  --muted:   #756f63;
+  --muted:   #655f52;
   --faint:   #b3ab99;
-  --accent:  #a8623a;
+  --accent:  #9a5530;
   --green:   #5e6e3f;
   --popup-shadow: 0 8px 40px rgba(0,0,0,0.12);
 }
@@ -261,7 +261,8 @@ header {
   font-size: 14px;
   line-height: 1.5;
   color: var(--text);
-  padding: 7px 0 7px 26px;
+  min-height: 44px;
+  padding: 12px 0 12px 30px;
   position: relative;
   cursor: pointer;
   border-bottom: 1px solid transparent;
@@ -272,14 +273,15 @@ header {
 .shop-item::before {
   content: "";
   position: absolute;
-  left: 0; top: 9px;
-  width: 14px; height: 14px;
-  border: 1px solid var(--faint);
+  left: 0; top: 14px;
+  width: 16px; height: 16px;
+  border: 1.5px solid var(--muted);
   border-radius: 3px;
   transition: background 0.15s, border-color 0.15s;
 }
 
 .shop-item:hover::before { border-color: var(--accent); }
+.shop-item:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
 
 .shop-item.checked { color: var(--faint); text-decoration: line-through; }
 .shop-item.checked::before {
@@ -326,7 +328,7 @@ header {
   font-size: 0.53rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--faint);
+  color: var(--muted);
   margin-bottom: 4px;
 }
 .archive-titel { font-size: 15px; font-weight: 500; color: var(--cream); margin-bottom: 3px; }
@@ -446,7 +448,8 @@ function renderWeek(w) {
       sec.items.forEach(function(item, ii){
         var key = w.id + '|' + si + '|' + ii;
         var checked = localStorage.getItem('ft-shop-' + key) === '1';
-        html += '<li class="shop-item' + (checked ? ' checked' : '') + '" data-key="' + key + '">' + esc(item) + '</li>';
+        html += '<li class="shop-item' + (checked ? ' checked' : '') + '" data-key="' + key +
+                '" role="checkbox" tabindex="0" aria-checked="' + (checked ? 'true' : 'false') + '">' + esc(item) + '</li>';
       });
       html += '</ul></div>';
     });
@@ -485,14 +488,24 @@ function renderArchive(currentId) {
   return html;
 }
 
-/* ── Shopping check toggle ── */
-document.addEventListener('click', function(e){
-  var item = e.target.closest('.shop-item');
-  if (!item) return;
+/* ── Shopping check toggle (mouse + keyboard) ── */
+function toggleShopItem(item){
   var key = item.dataset.key;
   var on = item.classList.toggle('checked');
+  item.setAttribute('aria-checked', on ? 'true' : 'false');
   if (on) localStorage.setItem('ft-shop-' + key, '1');
   else localStorage.removeItem('ft-shop-' + key);
+}
+document.addEventListener('click', function(e){
+  var item = e.target.closest('.shop-item');
+  if (item) toggleShopItem(item);
+});
+document.addEventListener('keydown', function(e){
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  var item = e.target.closest && e.target.closest('.shop-item');
+  if (!item) return;
+  e.preventDefault();
+  toggleShopItem(item);
 });
 
 /* ── Navigation ── */
