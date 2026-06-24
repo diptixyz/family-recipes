@@ -22,18 +22,18 @@
       },
       {
         "day": "Wednesday",
-        "dish": "Grandma's creamy carrots & potatoes",
+        "dish": "Aubergine & chickpea tomato stew with spaghetti",
         "note": "Kids out this evening — just the two of you.",
-        "core": "Sweat finely chopped onion in olive oil until glassy. Add diced carrots and potatoes and let them take on a little colour, then add a little vegetable broth dissolved in water. In a second pot, melt butter, stir in ½–1 Tbsp flour and cook briefly, then whisk in soy milk (or milk) to a sauce consistency; season with a little Maggi, paprika and a pinch of nutmeg. Fold the sauce through the vegetables. Quick version: stir a little flour into cold water, add to the veg with milk/soy and spices, and simmer to a sauce. Serve as is or with rice.",
-        "dairy": "Stir a little cream or quark into yours."
+        "core": "Sauté onion, garlic and ginger, add diced aubergine, baby tomatoes and the jar of chickpeas, and simmer into a soft stew. Serve over spaghetti or rice.",
+        "dairy": "Grated cheese on yours."
       },
       {
         "day": "Thursday",
-        "dish": "Aubergine & chickpea tomato stew with spaghetti",
-        "core": "Sauté onion, garlic and ginger, add diced aubergine, baby tomatoes and the jar of chickpeas, and simmer into a soft stew. Serve over spaghetti or rice.",
-        "kids": "Wurst on the side.",
-        "dairy": "Grated cheese.",
-        "toddler": "Mash the stew, mild spice, soft aubergine cut small."
+        "dish": "Grandma's creamy carrots & potatoes",
+        "core": "Sweat finely chopped onion in olive oil until glassy. Add diced carrots and potatoes and let them take on a little colour, then add a little vegetable broth dissolved in water. In a second pot, melt butter, stir in ½–1 Tbsp flour and cook briefly, then whisk in soy milk (or milk) to a sauce consistency; season with a little Maggi, paprika and a pinch of nutmeg. Fold the sauce through the vegetables. Quick version: stir a little flour into cold water, add to the veg with milk/soy and spices, and simmer to a sauce. Serve as is or with rice.",
+        "kids": "This is the one they like — keep it simple, just carrots & potatoes.",
+        "dairy": "Stir a little cream or quark into yours.",
+        "toddler": "Ideal for the little one — soft, mild, low salt; go easy on the Maggi."
       },
       {
         "day": "Friday",
@@ -53,7 +53,7 @@
       {
         "day": "Sunday",
         "dish": "Creamy mushroom & carrot pasta (Grandma's sauce)",
-        "core": "Same creamy flour + soy/milk sauce as Wednesday, this time with the last of the mushrooms and carrots, tossed through pasta.",
+        "core": "Same creamy flour + soy/milk sauce as Thursday, this time with the last of the mushrooms and carrots, tossed through pasta.",
         "kids": "They like creamy — finish with a little cheese.",
         "dairy": "A little cream or parmesan.",
         "toddler": "Soft pasta cut small."
