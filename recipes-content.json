@@ -1,0 +1,160 @@
+[
+  {
+    "id": "2026-06-22",
+    "date": "2026-06-22",
+    "title": "Week of 22 June",
+    "intro": "A vegan core every night that works for both of you, with simple add-ons for the kids and a dairy finish for you. Familiar, kid-safe, and built around what's in season.",
+    "season": ["zucchini", "green beans", "fennel", "new potatoes", "carrots", "peppers", "spinach", "strawberries", "cherries"],
+    "days": [
+      {
+        "day": "Monday",
+        "dish": "Coconut red-lentil dal, rice & green beans",
+        "core": "Simmer red lentils with onion, garlic, ginger, turmeric and cumin in coconut milk until creamy. Serve over basmati with green beans sautéed in a little oil. Finish with lemon and coriander.",
+        "kids": "Boiled egg halves or oven fish fingers",
+        "dairy": "A spoon of plain yoghurt stirred in",
+        "toddler": "Mash dal into the rice, cut beans into short pieces, hold the salt."
+      },
+      {
+        "day": "Tuesday",
+        "dish": "Penne with roasted zucchini–tomato sauce",
+        "core": "Roast diced zucchini in olive oil, then stir into a simple garlic–tomato sauce with basil. Toss through penne.",
+        "kids": "Pan-cooked Wurst slices on the side",
+        "dairy": "Grated parmesan",
+        "toddler": "Use small pasta shapes or cut the penne; the sauce is naturally soft."
+      },
+      {
+        "day": "Wednesday",
+        "dish": "Herby traybake: new potatoes, fennel, carrots & chickpeas",
+        "core": "Toss new potatoes, fennel wedges, carrots and a tin of chickpeas with olive oil, rosemary and thyme. Roast about 35 minutes until golden.",
+        "kids": "A baked salmon or white fish fillet alongside",
+        "dairy": "Yoghurt mixed with dill and a little lemon as a dip",
+        "toddler": "Soft potato and carrot cut small; skip the crispy edges."
+      },
+      {
+        "day": "Thursday",
+        "dish": "Lentil & vegetable soup with crusty bread",
+        "core": "Brown lentils simmered with onion, carrot, celery, tomato and a bay leaf into a hearty soup. Serve with good crusty bread.",
+        "kids": "Sliced Wurst dropped into their bowl",
+        "dairy": "Cheese on the bread",
+        "toddler": "Blend a portion smooth, low salt, serve warm not hot."
+      },
+      {
+        "day": "Friday",
+        "dish": "Spinach–chickpea curry (palak chana) with rice",
+        "core": "Wilt fresh spinach into a tomato-onion masala with cumin, coriander and garam masala, with chickpeas. Serve with rice.",
+        "kids": "Scrambled egg on the side",
+        "dairy": "Pan-fried paneer cubes folded in",
+        "toddler": "Mild spice, mash with rice."
+      },
+      {
+        "day": "Saturday",
+        "dish": "Flatbread “pizza” night with summer veg",
+        "core": "Flatbreads topped with tomato sauce, thin zucchini, peppers and olives, baked hot. Fun to let the four-year-old help assemble.",
+        "kids": "Ham or tuna topping on theirs",
+        "dairy": "Mozzarella on your slice",
+        "toddler": "Cut into small soft squares, go easy on toppings."
+      },
+      {
+        "day": "Sunday",
+        "dish": "Coconut–cashew vegetable korma with rice",
+        "core": "Mixed summer veg (carrot, peas, green beans, potato) simmered in a mild cashew–coconut sauce. Big batch — leftovers cover Monday's lunch. Serve with rice.",
+        "kids": "Baked fish or a boiled egg",
+        "dairy": "A swirl of cream or yoghurt",
+        "toddler": "Mild, mash veg into rice."
+      }
+    ],
+    "breakfasts": [
+      "Porridge with fruit and a little nut butter",
+      "Toast with jam or nut butter; fruit on the side",
+      "Yoghurt (soy for the partner) with strawberries",
+      "Weekend: idli or dosa as a treat"
+    ],
+    "lunches": [
+      "Leftover dal or korma with rice",
+      "Pasta from the night before",
+      "Veggie sticks with hummus and bread",
+      "Simple sandwiches with cucumber and cheese / hummus"
+    ],
+    "shopping": [
+      {
+        "section": "Produce",
+        "organic": true,
+        "items": [
+          "Onions — 6",
+          "Garlic — 2 bulbs",
+          "Fresh ginger — 1 large thumb",
+          "Green beans — 400 g",
+          "Zucchini — 4",
+          "Tomatoes — 6",
+          "Fennel — 2 bulbs",
+          "New potatoes — 1.2 kg",
+          "Carrots — 1 kg",
+          "Celery — 1 small head",
+          "Fresh spinach — 400 g",
+          "Bell peppers — 3",
+          "Cucumber — 1",
+          "Fresh peas — 200 g (or frozen)",
+          "Lemons — 3",
+          "Herbs: coriander, basil, dill, rosemary/thyme",
+          "Strawberries — 500 g",
+          "Cherries — 500 g (halve & pit for toddler)"
+        ]
+      },
+      {
+        "section": "Pantry / dry goods",
+        "organic": false,
+        "items": [
+          "Red lentils — 250 g",
+          "Brown lentils — 250 g",
+          "Tinned chickpeas — 2",
+          "Tinned chopped tomatoes — 3",
+          "Coconut milk — 2 tins",
+          "Cashews — 100 g",
+          "Penne pasta — 500 g",
+          "Crusty bread / baguette — 1–2",
+          "Flatbreads or pizza bases — 4–6",
+          "Pitted olives — 1 small jar"
+        ]
+      },
+      {
+        "section": "Refrigerated / chilled",
+        "organic": false,
+        "items": [
+          "Plant milk — 1",
+          "Plain yoghurt — 1 tub",
+          "Paneer — 1 block",
+          "Parmesan — small wedge",
+          "Mozzarella — 1 ball",
+          "Cream (optional) — small pot"
+        ]
+      },
+      {
+        "section": "Frozen",
+        "organic": false,
+        "items": [
+          "Peas — 1 bag (if not buying fresh)",
+          "Oven fish fingers — 1 box"
+        ]
+      },
+      {
+        "section": "Kids' add-ons (Wurst / Fisch / eggs)",
+        "organic": false,
+        "items": [
+          "Eggs — 6",
+          "Wurst / child-friendly sausage — 1 pack",
+          "Salmon or white fish fillets — 2–3",
+          "Ham slices or tinned tuna — small pack/tin"
+        ]
+      }
+    ],
+    "pantry": [
+      "Basmati / long-grain rice",
+      "Olive oil + neutral cooking oil",
+      "Salt (sparingly for the kids)",
+      "Cumin, coriander, turmeric, garam masala",
+      "Bay leaf, dried rosemary/thyme",
+      "Black pepper"
+    ],
+    "preptip": "On Sunday, make the vegetable korma as a big batch — it reheats well and covers Monday's lunch. While the oven is on for Wednesday's traybake, roast extra veg to fold into Thursday's soup or Saturday's flatbreads. Wash and prep the beans, fennel and carrots early so weeknights are mostly assembly."
+  }
+]
