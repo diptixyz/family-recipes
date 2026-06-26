@@ -462,34 +462,6 @@ header {
 .btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
 .btn-primary:hover { color: #fff; border-color: var(--accent); opacity: 0.88; }
 
-.pantry-results { margin-top: 26px; border-top: 1px solid var(--border); padding-top: 20px; }
-.pantry-results.empty-res { display: none; }
-.presult-head {
-  font-family: var(--mono);
-  font-size: 0.53rem; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 16px;
-}
-.presult {
-  display: flex; align-items: baseline; gap: 12px;
-  padding: 11px 0; border-bottom: 1px solid var(--border);
-}
-.presult.is-eaten { opacity: 0.5; }
-.presult-rank {
-  font-family: var(--mono); font-size: 0.62rem; color: var(--faint);
-  flex: 0 0 18px;
-}
-.presult-main { flex: 1; }
-.presult-day {
-  font-family: var(--mono); font-size: 0.5rem; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--muted); margin-bottom: 3px;
-}
-.presult-dish { font-size: 14px; color: var(--cream); line-height: 1.35; }
-.presult-need { font-size: 12px; color: var(--muted); margin-top: 4px; }
-.presult-need b { color: var(--accent); font-weight: 400; }
-.presult-cover {
-  font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.04em;
-  white-space: nowrap; padding-top: 2px;
-}
 .cover-full { color: var(--green); }
 .cover-part { color: var(--accent); }
 
@@ -539,10 +511,10 @@ header {
       <button type="button" onclick="clearPantry()">clear</button>
     </div>
     <div class="overlay-actions">
-      <button class="btn btn-primary" onclick="runMatch()">Match the week</button>
-      <button class="btn" onclick="closePantry()">Close</button>
+      <button class="btn btn-primary" onclick="runMatch()">Reorder my week</button>
+      <button class="btn" id="pantryResetBtn" onclick="resetOrder()">Reset to date order</button>
+      <button class="btn" onclick="closePantry()">Cancel</button>
     </div>
-    <div class="pantry-results empty-res" id="pantryResults"></div>
   </div>
 </div>
 
@@ -832,7 +804,7 @@ function openPantry(){
   var inp = document.getElementById('pantryInput');
   inp.value = localStorage.getItem('ft-pantry-have') || '';
   if (!inp.value.trim() && currentWeek) seedFromKitchen();
-  document.getElementById('pantryResults').classList.add('empty-res');
+  document.getElementById('pantryResetBtn').style.display = pantryActive ? '' : 'none';
   document.getElementById('pantryOverlay').classList.add('open');
   inp.focus();
 }
@@ -846,44 +818,16 @@ function seedFromKitchen(){
 }
 function clearPantry(){ document.getElementById('pantryInput').value = ''; document.getElementById('pantryInput').focus(); }
 
+/* One action: save the list, rank + reorder the week, close the overlay. */
 function runMatch(){
   var val = document.getElementById('pantryInput').value.trim();
   localStorage.setItem('ft-pantry-have', val);
-  if (!currentWeek || !currentWeek.days) return;
-  var haveText = haveTextFor(currentWeek);
-  var scored = currentWeek.days.map(function(d, i){ return { d: d, i: i, s: scoreDay(d, haveText) }; });
-  scored.sort(pantrySort);
-  renderResults(scored);
-}
-
-function renderResults(scored){
-  var el = document.getElementById('pantryResults');
-  var html = '<div class="presult-head">Cook in this order — most of what you have, first</div>';
-  scored.forEach(function(o, idx){
-    var s = o.s, full = s.total && s.have.length === s.total;
-    html += '<div class="presult' + (o.d.eaten ? ' is-eaten' : '') + '">';
-    html += '<span class="presult-rank">' + (idx + 1) + '</span>';
-    html += '<div class="presult-main">';
-    html += '<div class="presult-day">' + esc(o.d.day) + (o.d.eaten ? ' · already eaten' : '') + '</div>';
-    html += '<div class="presult-dish">' + esc(o.d.dish) + '</div>';
-    if (s.need.length) html += '<div class="presult-need">Still need: <b>' + s.need.map(esc).join(', ') + '</b></div>';
-    html += '</div>';
-    if (s.total) html += '<span class="presult-cover ' + (full ? 'cover-full' : 'cover-part') + '">' + s.have.length + '/' + s.total + '</span>';
-    html += '</div>';
-  });
-  html += '<div class="overlay-actions"><button class="btn btn-primary" onclick="applyOrder()">Apply this order to the week</button>';
-  if (pantryActive) html += '<button class="btn" onclick="resetOrder()">Reset to date order</button>';
-  html += '</div>';
-  el.innerHTML = html;
-  el.classList.remove('empty-res');
-}
-
-function applyOrder(){
   pantryActive = true;
   localStorage.setItem('ft-pantry-active', '1');
   closePantry();
   if (currentWeek) navigateTo(currentWeek);
 }
+
 function resetOrder(){
   pantryActive = false;
   localStorage.removeItem('ft-pantry-active');
