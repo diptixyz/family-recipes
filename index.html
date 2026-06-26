@@ -503,11 +503,10 @@ header {
 <div class="overlay" id="pantryOverlay" role="dialog" aria-modal="true" aria-labelledby="pantryTitle">
   <div class="overlay-panel">
     <div class="overlay-eyebrow">Pantry match</div>
-    <h2 class="overlay-title" id="pantryTitle">What's in your kitchen?</h2>
-    <p class="overlay-sub">List what you already have — produce, leftovers, anything. The week gets re-ranked so you cook the best-covered nights first and shop less. Everyday staples (oil, flour, spices, onion, garlic) are assumed.</p>
-    <textarea class="pantry-input" id="pantryInput" placeholder="carrots, potatoes, rice, tofu, baby tomatoes, coconut milk…"></textarea>
+    <h2 class="overlay-title" id="pantryTitle">What fresh produce do you have?</h2>
+    <p class="overlay-sub">Your pantry staples — grains, pulses, spices, sauces, tofu, oils — are already assumed in stock. Just list the fresh produce &amp; fruit you've got. The week re-ranks so you cook the best-covered nights first, and “still need” shows exactly what to buy.</p>
+    <textarea class="pantry-input" id="pantryInput" placeholder="potato, onion, tomato, spinach, mushrooms, lemon…"></textarea>
     <div class="pantry-helper">
-      <button type="button" onclick="seedFromKitchen()">+ fill from “in the kitchen”</button>
       <button type="button" onclick="clearPantry()">clear</button>
     </div>
     <div class="overlay-actions">
@@ -571,11 +570,11 @@ function renderWeek(w) {
   if (w.days && w.days.length) {
     html += '<div class="section-divider"></div><p class="section-label">Dinners</p>';
     if (pantryActive) {
-      html += '<div class="pantry-active-note">Ranked by what you already have — cook from the top to shop less.' +
+      html += '<div class="pantry-active-note">Ranked against your pantry — “still need” is fresh produce to buy. Cook from the top to shop less.' +
               '<button onclick="resetOrder()">reset to date order</button></div>';
     }
-    var haveText = haveTextFor(w);
-    var rows = w.days.map(function(d, i){ return { d: d, i: i, s: scoreDay(d, haveText) }; });
+    var userText = userHaveText();
+    var rows = w.days.map(function(d, i){ return { d: d, i: i, s: scoreDay(d, userText) }; });
     if (pantryActive) rows.sort(pantrySort);
     html += '<div class="days">';
     rows.forEach(function(o){
@@ -747,21 +746,39 @@ window.addEventListener('hashchange', handleHash);
 /* Longer / multi-word terms first so containment dedupe keeps the specific one. */
 var INGREDIENT_VOCAB = [
   "spring onion","baby tomato","cherry tomato","green bean","white bean","kidney bean",
-  "bell pepper","oyster mushroom","coconut milk","soy milk","soy sauce","vegetable broth",
-  "olive oil","cream cheese","peanut butter","nut butter",
+  "bell pepper","oyster mushroom","sun-dried tomato","coconut milk","soy milk","soy sauce",
+  "dark soy sauce","vegetable broth","olive oil","sesame oil","cream cheese","peanut butter",
+  "nut butter","curry leaf","kasuri methi","garam masala","chaat masala","tomato paste",
+  "tomato passata","thai curry paste","ramen noodle","soba noodle","somen noodle","udon noodle",
+  "yakisoba noodle","lasagna sheet","spring roll",
   "onion","garlic","ginger","carrot","potato","aubergine","eggplant","tomato","mushroom",
   "champignon","shimeji","zucchini","courgette","pumpkin","cucumber","pepper","broccoli",
   "cauliflower","fennel","bean","pea","spinach","chard","lentil","chickpea","tofu","radish",
-  "millet","rice","pasta","spaghetti","noodle","flour","bread","pretzel","roll","milk","butter",
-  "margarine","cream","quark","yoghurt","yogurt","cheese","parmesan","paneer","mozzarella","egg",
-  "wurst","sausage","fish","salmon","tuna","miso","cashew","almond","avocado","coriander",
-  "basil","parsley","dill","paprika","cumin","turmeric","nutmeg","lemon","lime","hummus",
-  "corn","leek","cabbage","beetroot","apple","banana","berry","strawberry"
+  "asparagus","leek","cabbage","beetroot","corn","avocado",
+  "millet","rice","pasta","spaghetti","noodle","quinoa","oat","flour","bread","pretzel","roll",
+  "spätzle","gyoza","mochi","milk","butter","margarine","cream","quark","yoghurt","yogurt",
+  "cheese","parmesan","paneer","mozzarella","egg","wurst","sausage","fish","salmon","tuna",
+  "miso","kombu","nori","wakame","shiitake","gochujang","gochugaru","doubanjiang","mirin","sake",
+  "sauerkraut","tahini","sesame","soy curl","tvp","cashew","almond","peanut","coriander",
+  "basil","parsley","dill","oregano","rosemary","thyme","lemongrass","paprika","cumin","turmeric",
+  "nutmeg","cardamom","cinnamon","asafoetida","fenugreek","mustard","nutritional yeast","maggi",
+  "lemon","lime","hummus","banana","blueberry","berry","strawberry","date","fig","peach","prune","apple"
 ];
 
-/* Staples assumed always on hand, so they never show up as "still need". */
-var ASSUMED_STAPLES = "salt oil olive oil flour sugar garlic onion ginger water " +
-  "cumin coriander turmeric paprika nutmeg pepper spice spices soy sauce vegetable broth maggi";
+/* Fresh produce & fruit — bought per recipe, so these read as "still need" unless
+   you say you have them. Everything NOT here is assumed in stock from the pantry. */
+var FRESH_TERMS = new Set([
+  "onion","spring onion","garlic","ginger","tomato","baby tomato","cherry tomato","potato",
+  "carrot","aubergine","eggplant","mushroom","champignon","shimeji","oyster mushroom","zucchini",
+  "courgette","pumpkin","cucumber","bell pepper","broccoli","cauliflower","fennel","pea","spinach",
+  "chard","radish","asparagus","leek","cabbage","beetroot","corn","avocado","green bean",
+  "banana","blueberry","berry","strawberry","date","fig","lemon","lime","peach","prune","apple"
+]);
+
+/* The standing pantry, loaded from pantry.json. Everything in here is assumed in stock.
+   Fallback string covers the basics if the file fails to load. */
+var stockedText = " salt oil olive oil flour sugar rice pasta lentils chickpeas tofu soy sauce "
+  + "coconut milk vegetable broth spices cumin coriander turmeric paprika nutmeg miso ";
 
 function escRe(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 function termRe(t){ return new RegExp('\\b' + escRe(t) + '(s|es)?\\b', 'i'); }
@@ -777,17 +794,21 @@ function detectTerms(text){
   });
 }
 
-function dayText(d){ return [d.dish, d.core, d.kids, d.dairy].filter(Boolean).join('  '); }
+/* Score the vegan CORE only (dish + core), not the kid/dairy add-ons. */
+function dayText(d){ return [d.dish, d.core].filter(Boolean).join('  '); }
 
-function haveTextFor(w){
-  var base = localStorage.getItem('ft-pantry-have') || '';
-  return ' ' + (base + '  ' + ASSUMED_STAPLES).toLowerCase() + ' ';
+function userHaveText(){
+  return ' ' + (localStorage.getItem('ft-pantry-have') || '').toLowerCase() + ' ';
 }
 
-function scoreDay(d, haveText){
+function scoreDay(d, userText){
   var detected = detectTerms(dayText(d));
   var have = [], need = [];
-  detected.forEach(function(t){ (termRe(t).test(haveText) ? have : need).push(t); });
+  detected.forEach(function(t){
+    var fresh = FRESH_TERMS.has(t);
+    var got = termRe(t).test(userText) || (!fresh && termRe(t).test(stockedText));
+    (got ? have : need).push(t);
+  });
   return { detected: detected, have: have, need: need, total: detected.length,
            coverage: detected.length ? have.length / detected.length : 0 };
 }
@@ -803,19 +824,12 @@ function pantrySort(a, b){
 function openPantry(){
   var inp = document.getElementById('pantryInput');
   inp.value = localStorage.getItem('ft-pantry-have') || '';
-  if (!inp.value.trim() && currentWeek) seedFromKitchen();
   document.getElementById('pantryResetBtn').style.display = pantryActive ? '' : 'none';
   document.getElementById('pantryOverlay').classList.add('open');
   inp.focus();
 }
 function closePantry(){ document.getElementById('pantryOverlay').classList.remove('open'); }
 
-function seedFromKitchen(){
-  if (!currentWeek || !currentWeek.onhand) return;
-  var items = [];
-  currentWeek.onhand.forEach(function(g){ g.items.forEach(function(i){ items.push(i); }); });
-  document.getElementById('pantryInput').value = items.join(', ');
-}
 function clearPantry(){ document.getElementById('pantryInput').value = ''; document.getElementById('pantryInput').focus(); }
 
 /* One action: save the list, rank + reorder the week, close the overlay. */
@@ -844,6 +858,12 @@ document.addEventListener('keydown', function(e){
 
 /* ── Init ── */
 function sortWeeks(a){ return a.slice().sort(function(x,y){ return y.date.localeCompare(x.date); }); }
+
+/* Standing pantry → the assumed-in-stock baseline for the pantry match. */
+fetch('./pantry.json')
+  .then(function(r){ return r.json(); })
+  .then(function(p){ if (p && p.stocked) stockedText = ' ' + p.stocked.join('  ').toLowerCase() + ' '; })
+  .catch(function(){ /* keep the fallback stockedText */ });
 
 fetch('./recipes-content.json')
   .then(function(r){ return r.json(); })

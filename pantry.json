@@ -1,0 +1,24 @@
+{
+  "note": "The family's standing pantry. 'stocked' items are assumed in stock (dry/jarred/long-life). 'fresh' items (produce & fruit) are bought per recipe and are NOT assumed — they're what the pantry-match treats as 'still need' unless you say you have them.",
+  "stocked": [
+    "agave", "all purpose flour", "almond butter", "baking cacao", "baking powder", "chickpea flour", "chocolate cookies", "peanut butter", "sugar", "vanilla extract", "vegan dark chocolate",
+    "ajwain seeds", "almonds", "cashews", "cumin seeds", "fennel seeds", "fenugreek seeds", "mixed nuts", "mustard seeds", "peanuts", "sesame seeds",
+    "almond milk", "alpro vanilla yoghurt", "bresso frischkäse kräuter", "margarine", "oat milk", "vanilla milk", "vegan butter", "vegan cream",
+    "amchur powder", "asafoetida", "black pepper", "cardamom", "chaat masala", "chilli flakes", "chilli powder", "cinnamon powder", "coriander powder", "cumin powder", "dried chili", "dried thyme", "garam masala", "garlic powder", "gochugaru", "kasuri methi", "maggi", "nutmeg", "nutritional yeast", "onion powder", "panch phodan", "paprika", "salt", "sattu powder", "sea salt", "shichimi togarashi", "smoked paprika", "turmeric",
+    "apple cider vinegar", "balsamic vinegar", "bbq sauce", "chilli oil", "dark soy sauce", "ketchup", "lemon juice", "linseed oil", "olive oil", "olives", "rice vinegar", "sesame oil", "soy sauce", "sweet mustard", "teriyaki sauce", "tonkatsu sauce", "vegetable oil", "white vinegar", "white wine",
+    "black beans", "black lentils", "chickpeas", "kala chana", "lentils", "moong lentils", "urad dal",
+    "breadcrumbs", "ceremonial cacao", "coconut milk", "coconut powder", "cornstarch", "goji berries", "maca", "panko breadcrumbs", "parchment paper", "sauerkraut", "spirulina", "sun-dried tomatoes", "vegetable broth", "water",
+    "brown miso", "dark miso", "dried shiitake mushrooms", "hijiki seaweed", "kombu", "light miso", "mirin", "mochi", "nori seaweed", "red miso", "wakame seaweed", "white miso",
+    "chilli sauce", "doubanjiang", "gochujang", "japanese curry bullion", "mushroom sauce", "tomato passata", "tomato paste", "yellow thai curry paste",
+    "curry leaf", "dill", "dried oregano", "dried parsley", "dried rosemary", "lemongrass",
+    "frozen gyozas",
+    "fruit juice", "sake", "sparkling water",
+    "hafer bbq burger", "salami billie green", "soy curls", "tofu", "tofu filet", "tvp textured vegetable protein",
+    "lasagna sheets", "müsli seitenbacher protein", "müsli seitenbacher sportliche", "oatmeal", "pasta", "quinoa", "ramen noodles", "rice", "soba noodles", "somen noodles", "spätzle", "yakisoba noodles",
+    "nutella vegan", "samba dark chocolate cream"
+  ],
+  "fresh": [
+    "asparagus", "chilli", "cucumber", "garlic", "ginger", "green beans", "mixed salad", "plum tomato", "potato", "white onion", "wild garlic",
+    "banana", "blueberries", "date", "fig", "lemon", "peach", "prune", "strawberries"
+  ]
+}
