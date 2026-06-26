@@ -145,5 +145,157 @@
       }
     ],
     "preptip": "The creamy flour-and-milk/soy sauce (Grandma's method) is the backbone twice this week — Wednesday's carrots & potatoes and Sunday's mushroom pasta. Make a little extra on Wednesday and keep it for Sunday. Boil a few eggs at the start of the week for both dinners and the Vesper box."
+  },
+  {
+    "id": "2026-06-29",
+    "date": "2026-06-29",
+    "title": "Week of 29 June",
+    "intro": "Built from your own recipe app this week — tofu katsu, a mild Japanese curry and the crispy miso tofu tacos — with a clear kid path spelled out for every night. The dishes are vegan at the core; the kids' version is usually just the crispy bit served plain, before the heat goes in.",
+    "season": ["green beans", "cauliflower", "cucumber", "new potatoes", "strawberries", "cherries"],
+    "days": [
+      {
+        "day": "Monday",
+        "dish": "Vegan Japanese curry with rice",
+        "note": "Mild and sweet — the whole-family anchor for the week.",
+        "core": "Sauté onion, carrot and potato with a little garlic and ginger. Add water and a mild Japanese curry roux (or the japanese curry bullion), and simmer until the veg is soft and the sauce is thick and glossy. Stir in peas at the end. Serve over rice.",
+        "kids": "Kid-friendly as it is — serve over rice. Add a fish fillet or boiled egg on the side if they want more.",
+        "toddler": "Soft veg, mild roux, low salt — mash lightly into the rice."
+      },
+      {
+        "day": "Tuesday",
+        "dish": "Tofu katsu with rice & a cucumber-cabbage salad",
+        "core": "Coat tofu filets in flour, then a quick oat-milk wash, then panko, and shallow-fry until golden. Serve with rice, a crunchy cucumber and cabbage salad, and tonkatsu sauce.",
+        "kids": "A reliable win — give them plain katsu strips, or with a little ketchup, plus rice. Hold the tonkatsu sauce if they prefer.",
+        "toddler": "Cut the katsu into soft strips with the sauce on the side; chop the raw salad very small or skip it."
+      },
+      {
+        "day": "Wednesday",
+        "dish": "Crispy miso tofu tacos",
+        "note": "From your recipe app — the tofu sticks double as the kids' dinner.",
+        "core": "Crumb tofu sticks (cornstarch, then oat-milk, then panko seasoned with smoked paprika and cumin) and shallow-fry. Simmer the miso-BBQ — soy sauce, red miso, apple cider vinegar, agave, tomato paste and a splash of water — until thick. Make a pico of tomato, red onion, corn, coriander and lime. Build tacos with avocado.",
+        "kids": "The panko tofu sticks ARE the kid meal — serve plain sticks with avocado and a warm tortilla; hold the miso-BBQ and the oniony pico.",
+        "toddler": "Tofu sticks cut small with mashed avocado in a soft tortilla — no chilli, no raw onion."
+      },
+      {
+        "day": "Thursday",
+        "dish": "Cashew tofu stir-fry with seasonal veg & rice",
+        "core": "Stir-fry tofu until golden, then add broccoli, bell pepper and green beans with garlic, ginger and spring onion. Toss through a soy-sesame stir-fry sauce with cashews. Serve over rice.",
+        "kids": "Pull a plain portion before the chilli goes in — tofu, cashews and rice.",
+        "toddler": "Keep it mild; grind or finely chop the cashews (whole nuts are a choking hazard) and cut the veg small."
+      },
+      {
+        "day": "Friday",
+        "dish": "Somen noodles with a sesame-soy dip & steamed greens",
+        "note": "A relaxed Friday.",
+        "core": "Cook somen and rinse cold. Serve with a light sesame-soy dipping sauce (a little mirin in it) and quick-steamed greens like spinach or pak choi.",
+        "kids": "Plain cold noodles are a kid favourite — mild dip on the side.",
+        "toddler": "Cut the noodles short; keep the dip mild and low-salt."
+      },
+      {
+        "day": "Saturday",
+        "dish": "Gobi manchurian with rice",
+        "note": "Weekend fry-up from your recipe app.",
+        "core": "Toss cauliflower florets in a cornstarch batter and fry until crisp. Make the manchurian sauce — soy sauce, tomato paste, a little gochujang or chilli, ginger, garlic and spring onion — and toss the gobi through. Serve with rice or noodles.",
+        "kids": "Set aside plain fried florets before the spicy sauce, or toss theirs in a mild soy glaze.",
+        "toddler": "Soft florets cut small; skip the spicy sauce."
+      },
+      {
+        "day": "Sunday",
+        "dish": "Grandma's creamy carrots & potatoes",
+        "core": "Sweat finely chopped onion, add diced carrots and potatoes and a little vegetable broth. Make the creamy flour and oat-milk sauce, season gently with a little Maggi, paprika and nutmeg, and fold it through the veg. Serve as is or with rice.",
+        "kids": "The one they actually like — keep it simple, just carrots & potatoes.",
+        "dairy": "Stir a little cream or quark into yours.",
+        "toddler": "Soft, mild and low salt — ideal for the little one."
+      }
+    ],
+    "breakfasts": [
+      "Oatmeal or Seitenbacher müsli with oat milk and strawberries or blueberries",
+      "Toast with peanut/almond butter or vegan Nutella + banana",
+      "Alpro vanilla yoghurt with fruit and a few cashews",
+      "Weekend: jumbo chickpea pancake (savoury — from your recipe app)"
+    ],
+    "lunches": [
+      "Leftover curry or katsu with rice",
+      "Somen or rice bowl with veg",
+      "Hummus & cucumber wrap",
+      "Tofu-katsu sandwich with the slaw",
+      "Chickpea pancake with salad"
+    ],
+    "vesper": {
+      "note": "Older one's snack box, 5 days a week. A bit bigger on Tuesday and Thursday. Savoury only.",
+      "days": [
+        { "day": "Monday", "big": false, "idea": "Carrot & cucumber sticks, bread with Aufstrich, a few almonds." },
+        { "day": "Tuesday", "big": true, "idea": "Pretzel with Wurst & margarine, mini tomato halves, boiled egg slices, a small handful of cashews." },
+        { "day": "Wednesday", "big": false, "idea": "Bread with vegan cheese, cucumber rounds, mini tomato halves." },
+        { "day": "Thursday", "big": true, "idea": "Roll with Wurst & butter, boiled egg slices, carrot & cucumber sticks, baby tomatoes, cashews." },
+        { "day": "Friday", "big": false, "idea": "Pretzel, Wurst & margarine, carrot sticks, a few cashews." }
+      ],
+      "more_ideas": [
+        "Breadsticks with hummus",
+        "Bell-pepper strips",
+        "Rice cakes with nut butter",
+        "Leftover mini tofu-katsu strips"
+      ]
+    },
+    "shoptitle": "This week's shop",
+    "shopnote": "Pantry staples are assumed in stock — this is the fresh produce, a tofu top-up and the kids' add-ons. Tap to check off.",
+    "shopping": [
+      {
+        "section": "Produce",
+        "organic": true,
+        "items": [
+          "Carrots — ~1 kg (Mon curry, Thu stir-fry, Sun creamy pot)",
+          "New potatoes — ~1 kg (Mon + Sun)",
+          "Onions — 3-4, plus 1 red onion (Wed pico)",
+          "Broccoli — 1 head (Thu)",
+          "Bell peppers — 2-3 (Thu)",
+          "Green beans — 250 g (Thu)",
+          "Cauliflower — 1 head (Sat gobi)",
+          "Cucumber — 2 (Tue salad + Vesper)",
+          "White cabbage — 1/2 small (Tue katsu slaw)",
+          "Large tomatoes — 2, plus 1 punnet baby tomatoes (Wed pico + Vesper)",
+          "Corn — 1 tin or 1 cob (Wed pico)",
+          "Spring onions — 2 bunches (Thu + Sat)",
+          "Fresh coriander — 2 bunches (Wed + Sat)",
+          "Garlic — 1 bulb; fresh ginger — 1 thumb (most nights)",
+          "Avocado — 2 (Wed)",
+          "Lime — 2 (Wed)",
+          "Spinach or pak choi — 1 bag (Fri greens)"
+        ]
+      },
+      {
+        "section": "Refrigerated / chilled",
+        "organic": false,
+        "items": [
+          "Tofu — top up to ~4 blocks/filets (katsu, tacos and stir-fry go through a lot)"
+        ]
+      },
+      {
+        "section": "Frozen",
+        "organic": false,
+        "items": [
+          "Peas — 1 bag (Mon curry)"
+        ]
+      },
+      {
+        "section": "Kids' add-ons (Wurst / Fisch / eggs)",
+        "organic": false,
+        "items": [
+          "Eggs — 6 (boiled-egg Vesper + optional with the curry)",
+          "Wurst / child-friendly sausage — 1 pack (Vesper)",
+          "Fish fillets — 1-2 (optional side for the kids, e.g. with the curry)"
+        ]
+      }
+    ],
+    "pantry": [
+      "Rice & somen noodles",
+      "Japanese curry roux / bullion",
+      "Panko & cornstarch",
+      "Soy sauce, red miso, mirin, sesame oil",
+      "Apple cider vinegar, agave, tomato paste",
+      "Smoked paprika, cumin, curry spices",
+      "Oat milk, cashews, tortillas, tonkatsu sauce, flour"
+    ],
+    "preptip": "Tuesday's katsu, Wednesday's tacos and Saturday's gobi all share the same crumb-and-fry station — double the tofu on Tuesday and stash sticks for Wednesday's tacos. Boil a batch of eggs at the start of the week for the Vesper box. Both the Japanese curry and Sunday's creamy carrots reheat well, so make extra."
   }
 ]

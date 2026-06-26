@@ -10,4 +10,5 @@ Weekly family meal plans and consolidated organic shopping lists, auto-generated
 Preferences: organic fruit & veg, fewer-but-quality products, seasonal (Germany).
 
 ## Recent plans
+- **Week of 29 June 2026** — built from the family's own recipe repertoire (tofu katsu, vegan Japanese curry, crispy miso tofu tacos…) with a kid path per night. Lives in [recipes-content.json](recipes-content.json); view it on the [Family Table site](https://diptixyz.github.io/family-recipes/).
 - [Week of 22 June 2026](plans/2026/meal-plan-2026-06-22.md)
