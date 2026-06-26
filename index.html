@@ -373,6 +373,146 @@ header {
   .page { padding: 40px 20px 80px; }
 }
 
+/* ── PANTRY MATCH ── */
+.pantry-btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+  background: none; border: none; cursor: pointer; padding: 0;
+  transition: color 0.15s;
+}
+.pantry-btn:hover { color: var(--muted); }
+
+.overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.55);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 48px 20px;
+  overflow-y: auto;
+  z-index: 50;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+.overlay.open { opacity: 1; visibility: visible; }
+
+.overlay-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--popup-shadow);
+  max-width: 540px; width: 100%;
+  padding: 32px 30px 28px;
+  animation: fadeIn 0.3s ease;
+}
+
+.overlay-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.53rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 12px;
+}
+.overlay-title {
+  font-size: 22px; font-weight: 500; color: var(--cream);
+  letter-spacing: -0.02em; margin-bottom: 10px;
+}
+.overlay-sub {
+  font-size: 13.5px; color: var(--muted); font-style: italic;
+  line-height: 1.6; margin-bottom: 20px;
+}
+
+.pantry-input {
+  width: 100%;
+  min-height: 96px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 14px; line-height: 1.6;
+  padding: 12px 14px;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.pantry-input:focus { border-color: var(--accent); }
+.pantry-input::placeholder { color: var(--faint); }
+
+.pantry-helper {
+  font-family: var(--mono);
+  font-size: 0.55rem; letter-spacing: 0.06em;
+  margin: 10px 0 0;
+  display: flex; gap: 16px;
+}
+.pantry-helper button {
+  background: none; border: none; padding: 0; cursor: pointer;
+  font: inherit; color: var(--green); letter-spacing: inherit;
+  text-transform: uppercase; transition: opacity 0.15s;
+}
+.pantry-helper button:hover { opacity: 0.65; }
+
+.overlay-actions { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+.btn {
+  font-family: var(--mono);
+  font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 11px 18px; cursor: pointer;
+  border: 1px solid var(--border); background: none; color: var(--muted);
+  transition: color 0.15s, border-color 0.15s, opacity 0.15s;
+}
+.btn:hover { color: var(--cream); border-color: var(--muted); }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn-primary:hover { color: #fff; border-color: var(--accent); opacity: 0.88; }
+
+.pantry-results { margin-top: 26px; border-top: 1px solid var(--border); padding-top: 20px; }
+.pantry-results.empty-res { display: none; }
+.presult-head {
+  font-family: var(--mono);
+  font-size: 0.53rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 16px;
+}
+.presult {
+  display: flex; align-items: baseline; gap: 12px;
+  padding: 11px 0; border-bottom: 1px solid var(--border);
+}
+.presult.is-eaten { opacity: 0.5; }
+.presult-rank {
+  font-family: var(--mono); font-size: 0.62rem; color: var(--faint);
+  flex: 0 0 18px;
+}
+.presult-main { flex: 1; }
+.presult-day {
+  font-family: var(--mono); font-size: 0.5rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 3px;
+}
+.presult-dish { font-size: 14px; color: var(--cream); line-height: 1.35; }
+.presult-need { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.presult-need b { color: var(--accent); font-weight: 400; }
+.presult-cover {
+  font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.04em;
+  white-space: nowrap; padding-top: 2px;
+}
+.cover-full { color: var(--green); }
+.cover-part { color: var(--accent); }
+
+.cover-badge {
+  font-family: var(--mono); font-size: 0.5rem; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 1px 6px; margin-left: 10px;
+  border: 1px solid currentColor; vertical-align: 1px;
+}
+.need-line { font-size: 12.5px; color: var(--muted); margin-bottom: 12px; }
+.need-line b { color: var(--accent); font-weight: 400; }
+
+.pantry-active-note {
+  font-size: 12.5px; color: var(--green); font-style: italic;
+  margin-bottom: 24px; display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+}
+.pantry-active-note button {
+  font-family: var(--mono); font-size: 0.52rem; letter-spacing: 0.08em;
+  text-transform: uppercase; background: none; border: 1px solid var(--border);
+  color: var(--muted); padding: 4px 9px; cursor: pointer; transition: color 0.15s;
+  font-style: normal;
+}
+.pantry-active-note button:hover { color: var(--cream); }
+
 </style>
 </head>
 <body>
@@ -380,6 +520,7 @@ header {
   <header>
     <span class="wordmark">Family Table</span>
     <div class="header-right">
+      <button class="pantry-btn" id="pantryBtn" onclick="openPantry()">pantry</button>
       <button class="mode-toggle" id="modeToggle" onclick="toggleMode()">light</button>
       <span class="date-display" id="dateDisplay"></span>
     </div>
@@ -387,9 +528,29 @@ header {
   <main id="main"></main>
 </div>
 
+<div class="overlay" id="pantryOverlay" role="dialog" aria-modal="true" aria-labelledby="pantryTitle">
+  <div class="overlay-panel">
+    <div class="overlay-eyebrow">Pantry match</div>
+    <h2 class="overlay-title" id="pantryTitle">What's in your kitchen?</h2>
+    <p class="overlay-sub">List what you already have — produce, leftovers, anything. The week gets re-ranked so you cook the best-covered nights first and shop less. Everyday staples (oil, flour, spices, onion, garlic) are assumed.</p>
+    <textarea class="pantry-input" id="pantryInput" placeholder="carrots, potatoes, rice, tofu, baby tomatoes, coconut milk…"></textarea>
+    <div class="pantry-helper">
+      <button type="button" onclick="seedFromKitchen()">+ fill from “in the kitchen”</button>
+      <button type="button" onclick="clearPantry()">clear</button>
+    </div>
+    <div class="overlay-actions">
+      <button class="btn btn-primary" onclick="runMatch()">Match the week</button>
+      <button class="btn" onclick="closePantry()">Close</button>
+    </div>
+    <div class="pantry-results empty-res" id="pantryResults"></div>
+  </div>
+</div>
+
 <script>
 
 let weeks = [];
+let currentWeek = null;
+let pantryActive = localStorage.getItem('ft-pantry-active') === '1';
 
 /* ── Light/dark mode ── */
 function toggleMode() {
@@ -437,12 +598,27 @@ function renderWeek(w) {
   /* Dinners */
   if (w.days && w.days.length) {
     html += '<div class="section-divider"></div><p class="section-label">Dinners</p>';
+    if (pantryActive) {
+      html += '<div class="pantry-active-note">Ranked by what you already have — cook from the top to shop less.' +
+              '<button onclick="resetOrder()">reset to date order</button></div>';
+    }
+    var haveText = haveTextFor(w);
+    var rows = w.days.map(function(d, i){ return { d: d, i: i, s: scoreDay(d, haveText) }; });
+    if (pantryActive) rows.sort(pantrySort);
     html += '<div class="days">';
-    w.days.forEach(function(d){
+    rows.forEach(function(o){
+      var d = o.d, s = o.s, full = s.total && s.have.length === s.total;
       html += '<div class="day' + (d.eaten ? ' eaten' : '') + '">';
-      html += '<div class="day-name">' + esc(d.day) + (d.eaten ? '<span class="eaten-tag">eaten</span>' : '') + '</div>';
+      html += '<div class="day-name">' + esc(d.day) + (d.eaten ? '<span class="eaten-tag">eaten</span>' : '');
+      if (pantryActive && s.total) {
+        html += '<span class="cover-badge ' + (full ? 'cover-full' : 'cover-part') + '">' + s.have.length + '/' + s.total + ' have</span>';
+      }
+      html += '</div>';
       html += '<div class="day-dish">' + esc(d.dish) + '</div>';
       if (d.note) html += '<div class="day-note">' + esc(d.note) + '</div>';
+      if (pantryActive && s.need.length) {
+        html += '<div class="need-line">Still need: <b>' + s.need.map(esc).join(', ') + '</b></div>';
+      }
       if (d.core) html += '<div class="day-core">' + esc(d.core) + '</div>';
       html += '<div class="day-meta">';
       if (d.kids)    html += '<div class="meta-row"><span class="meta-key">Kids</span><span class="meta-val">' + esc(d.kids) + '</span></div>';
@@ -583,6 +759,7 @@ function getMostRecent() {
 }
 function navigateTo(w) {
   if (!w) return;
+  currentWeek = w;
   document.getElementById('main').innerHTML = renderWeek(w) + renderArchive(w.id);
   window.scrollTo(0, 0);
   document.getElementById('dateDisplay').textContent = formatRange(w.date);
@@ -593,6 +770,133 @@ function handleHash() {
   navigateTo(getMostRecent());
 }
 window.addEventListener('hashchange', handleHash);
+
+/* ── Pantry match ── */
+/* Longer / multi-word terms first so containment dedupe keeps the specific one. */
+var INGREDIENT_VOCAB = [
+  "spring onion","baby tomato","cherry tomato","green bean","white bean","kidney bean",
+  "bell pepper","oyster mushroom","coconut milk","soy milk","soy sauce","vegetable broth",
+  "olive oil","cream cheese","peanut butter","nut butter",
+  "onion","garlic","ginger","carrot","potato","aubergine","eggplant","tomato","mushroom",
+  "champignon","shimeji","zucchini","courgette","pumpkin","cucumber","pepper","broccoli",
+  "cauliflower","fennel","bean","pea","spinach","chard","lentil","chickpea","tofu","radish",
+  "millet","rice","pasta","spaghetti","noodle","flour","bread","pretzel","roll","milk","butter",
+  "margarine","cream","quark","yoghurt","yogurt","cheese","parmesan","paneer","mozzarella","egg",
+  "wurst","sausage","fish","salmon","tuna","miso","cashew","almond","avocado","coriander",
+  "basil","parsley","dill","paprika","cumin","turmeric","nutmeg","lemon","lime","hummus",
+  "corn","leek","cabbage","beetroot","apple","banana","berry","strawberry"
+];
+
+/* Staples assumed always on hand, so they never show up as "still need". */
+var ASSUMED_STAPLES = "salt oil olive oil flour sugar garlic onion ginger water " +
+  "cumin coriander turmeric paprika nutmeg pepper spice spices soy sauce vegetable broth maggi";
+
+function escRe(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+function termRe(t){ return new RegExp('\\b' + escRe(t) + '(s|es)?\\b', 'i'); }
+
+/* Vocab terms present in a text, deduped so "onion" drops when "spring onion" is there. */
+function detectTerms(text){
+  var lc = ' ' + String(text).toLowerCase() + ' ';
+  var found = INGREDIENT_VOCAB.filter(function(t){ return termRe(t).test(lc); });
+  return found.filter(function(t){
+    return !found.some(function(u){
+      return u !== t && u.length > t.length && new RegExp('\\b' + escRe(t) + '\\b').test(u);
+    });
+  });
+}
+
+function dayText(d){ return [d.dish, d.core, d.kids, d.dairy].filter(Boolean).join('  '); }
+
+function haveTextFor(w){
+  var base = localStorage.getItem('ft-pantry-have') || '';
+  return ' ' + (base + '  ' + ASSUMED_STAPLES).toLowerCase() + ' ';
+}
+
+function scoreDay(d, haveText){
+  var detected = detectTerms(dayText(d));
+  var have = [], need = [];
+  detected.forEach(function(t){ (termRe(t).test(haveText) ? have : need).push(t); });
+  return { detected: detected, have: have, need: need, total: detected.length,
+           coverage: detected.length ? have.length / detected.length : 0 };
+}
+
+function pantrySort(a, b){
+  var ae = a.d.eaten ? 1 : 0, be = b.d.eaten ? 1 : 0;
+  if (ae !== be) return ae - be;                                   /* eaten nights sink */
+  if (b.s.coverage !== a.s.coverage) return b.s.coverage - a.s.coverage;
+  if (a.s.need.length !== b.s.need.length) return a.s.need.length - b.s.need.length;
+  return a.i - b.i;
+}
+
+function openPantry(){
+  var inp = document.getElementById('pantryInput');
+  inp.value = localStorage.getItem('ft-pantry-have') || '';
+  if (!inp.value.trim() && currentWeek) seedFromKitchen();
+  document.getElementById('pantryResults').classList.add('empty-res');
+  document.getElementById('pantryOverlay').classList.add('open');
+  inp.focus();
+}
+function closePantry(){ document.getElementById('pantryOverlay').classList.remove('open'); }
+
+function seedFromKitchen(){
+  if (!currentWeek || !currentWeek.onhand) return;
+  var items = [];
+  currentWeek.onhand.forEach(function(g){ g.items.forEach(function(i){ items.push(i); }); });
+  document.getElementById('pantryInput').value = items.join(', ');
+}
+function clearPantry(){ document.getElementById('pantryInput').value = ''; document.getElementById('pantryInput').focus(); }
+
+function runMatch(){
+  var val = document.getElementById('pantryInput').value.trim();
+  localStorage.setItem('ft-pantry-have', val);
+  if (!currentWeek || !currentWeek.days) return;
+  var haveText = haveTextFor(currentWeek);
+  var scored = currentWeek.days.map(function(d, i){ return { d: d, i: i, s: scoreDay(d, haveText) }; });
+  scored.sort(pantrySort);
+  renderResults(scored);
+}
+
+function renderResults(scored){
+  var el = document.getElementById('pantryResults');
+  var html = '<div class="presult-head">Cook in this order — most of what you have, first</div>';
+  scored.forEach(function(o, idx){
+    var s = o.s, full = s.total && s.have.length === s.total;
+    html += '<div class="presult' + (o.d.eaten ? ' is-eaten' : '') + '">';
+    html += '<span class="presult-rank">' + (idx + 1) + '</span>';
+    html += '<div class="presult-main">';
+    html += '<div class="presult-day">' + esc(o.d.day) + (o.d.eaten ? ' · already eaten' : '') + '</div>';
+    html += '<div class="presult-dish">' + esc(o.d.dish) + '</div>';
+    if (s.need.length) html += '<div class="presult-need">Still need: <b>' + s.need.map(esc).join(', ') + '</b></div>';
+    html += '</div>';
+    if (s.total) html += '<span class="presult-cover ' + (full ? 'cover-full' : 'cover-part') + '">' + s.have.length + '/' + s.total + '</span>';
+    html += '</div>';
+  });
+  html += '<div class="overlay-actions"><button class="btn btn-primary" onclick="applyOrder()">Apply this order to the week</button>';
+  if (pantryActive) html += '<button class="btn" onclick="resetOrder()">Reset to date order</button>';
+  html += '</div>';
+  el.innerHTML = html;
+  el.classList.remove('empty-res');
+}
+
+function applyOrder(){
+  pantryActive = true;
+  localStorage.setItem('ft-pantry-active', '1');
+  closePantry();
+  if (currentWeek) navigateTo(currentWeek);
+}
+function resetOrder(){
+  pantryActive = false;
+  localStorage.removeItem('ft-pantry-active');
+  closePantry();
+  if (currentWeek) navigateTo(currentWeek);
+}
+
+document.getElementById('pantryOverlay').addEventListener('click', function(e){
+  if (e.target === this) closePantry();
+});
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Escape') closePantry();
+});
 
 /* ── Init ── */
 function sortWeeks(a){ return a.slice().sort(function(x,y){ return y.date.localeCompare(x.date); }); }
